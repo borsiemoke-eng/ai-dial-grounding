@@ -51,17 +51,17 @@ class UserRAG:
         #TODO:
         # 1. Split all `documents` on batches (100 documents in 1 batch). We need it since Embedding models have limited context window
         # 2. Iterate through document batches and create array with tasks that will generate FAISS vector stores from documents:
-        #    https://python.langchain.com/api_reference/community/vectorstores/langchain_community.vectorstores.faiss.FAISS.html#langchain_community.vectorstores.faiss.FAISS.afrom_documents
+        #    https://api.python.langchain.com/en/latest/vectorstores/langchain_community.vectorstores.faiss.FAISS.html#langchain_community.vectorstores.faiss.FAISS.afrom_documents
         # 3. Gather tasks with asyncio
         # 4. Create `final_vectorstore` via merge of all vector stores:
-        #    https://python.langchain.com/api_reference/community/vectorstores/langchain_community.vectorstores.faiss.FAISS.html#langchain_community.vectorstores.faiss.FAISS.merge_from
+        #    https://api.python.langchain.com/en/latest/vectorstores/langchain_community.vectorstores.faiss.FAISS.html#langchain_community.vectorstores.faiss.FAISS.merge_from
         # 6. Return `final_vectorstore`
         raise NotImplementedError
 
     async def retrieve_context(self, query: str, k: int = 10, score: float = 0.1) -> str:
         #TODO:
         # 1. Make similarity search:
-        #    https://python.langchain.com/api_reference/community/vectorstores/langchain_community.vectorstores.faiss.FAISS.html#langchain_community.vectorstores.faiss.FAISS.similarity_search_with_relevance_scores
+        #    https://api.python.langchain.com/en/latest/vectorstores/langchain_community.vectorstores.faiss.FAISS.html#langchain_community.vectorstores.faiss.FAISS.similarity_search_with_relevance_scores
         # 2. Create `context_parts` empty array (we will collect content here)
         # 3. Iterate through retrieved relevant docs (pay attention that its tuple (doc, relevance_score)) and:
         #       - add doc page content to `context_parts` and then print score and content
@@ -87,7 +87,6 @@ async def main():
 
     #TODO:
     # 1. Create AzureOpenAIEmbeddings
-    #    https://python.langchain.com/api_reference/openai/embeddings/langchain_openai.embeddings.azure.AzureOpenAIEmbeddings.html
     #    embedding model 'text-embedding-3-small-1'
     #    I would recommend to set up dimensions as 384
     # 2. Create AzureChatOpenAI
